@@ -55,7 +55,7 @@ func handleConn(conn net.Conn) {
 	entering<-ch
 	input:=bufio.NewScanner(conn)
 	for input.Scan() {
-		messages<-who+":"+input.Text()
+		messages<-who+":"+input.Text()+"\n" //这个是用于在客户端输出时，换行的
 	}
 	leaving<-ch
 	messages<-who+" left"
